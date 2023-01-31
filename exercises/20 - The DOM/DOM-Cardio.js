@@ -2,7 +2,7 @@
 const div = document.createElement('div');
 
 // add a class of wrapper to it
-div.classList = '.wrapper';
+div.classList.add('wrapper');
 
 // put it into the body
 document.body.appendChild(div);
@@ -25,7 +25,7 @@ img.src = 'https://picsum.photos/500';
 // set the width to 250
 img.width = 250;
 // add a class of cute
-img.classList = '.cute';
+img.classList.add('cute');
 // add an alt of Cute Puppy
 img.alt = 'Cute Puppy';
 // Append that image to the wrapper
@@ -44,7 +44,7 @@ console.log(ulElement);
 ulElement.insertAdjacentHTML('beforebegin', myHTML);
 // add a class to the second paragraph called warning
 const myDiv = div.querySelector('.myDiv');
-myDiv.children[1].classList = '.warning';
+myDiv.children[1].classList.add('warning');
 // remove the first paragraph
 myDiv.firstElementChild.remove();
 
