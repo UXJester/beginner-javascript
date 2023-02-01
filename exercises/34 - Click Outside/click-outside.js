@@ -9,7 +9,10 @@ function handleCardButtonClick(event) {
   const desc = card.dataset.description;
   // populate modal
   modalInner.innerHTML = `
-    <img src="${imgSrc.replace('200', '600')}" alt="${name}"/>
+    <img width="600" height="600" src="${imgSrc.replace(
+      '200',
+      '600'
+    )}" alt="${name}"/>
     <p>${desc}</p>
   `;
   // show the modal
