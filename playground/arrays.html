@@ -11,7 +11,80 @@
 </head>
 
 <body>
+  <script>
+    const names = ['bryan', 'jen', 'brody'];
 
+    console.log(names[0]);
+    console.log(names.length);
+    console.log(names[names.length - 1]);
+
+    names.push('foo');
+    console.log(names);
+    const names2 = [...names, 'bar'];
+    names.unshift('snafu');
+    console.log(names);
+    const names3 = ['anotherName', ...names];
+    console.log(names3);
+
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+    // mutable splice
+    console.log(numbers);
+    numbers.splice(3, 2);
+    console.log(numbers);
+
+    // immutable slice
+    const bikes = ['harley', 'honda', 'indian'];
+    const newBikes = [
+      ...bikes.slice(0, 2),
+      'triumph',
+      ...bikes.slice(2)
+    ];
+    console.log(newBikes);
+
+    const newBikes2 = [
+      ...newBikes.slice(0, 3),
+      ...newBikes.slice(4),
+    ]
+    console.log(newBikes2);
+
+    //
+    const comments = [
+      { text: 'Lorem.', id: 1 },
+      { text: 'Lorem, ipsum.', id: 2 },
+      { text: 'Lorem, ipsum dolor.', id: 3 },
+      { text: 'Lorem ipsum dolor sit.', id: 4 },
+      { text: 'Lorem ipsum dolor sit amet.', id: 5 },
+      { text: 'Lorem ipsum dolor sit amet consectetur.', id: 6 },
+    ];
+
+    function deleteComment(id, comments) {
+      // find index of the item
+      const commentIndex = comments.findIndex(comment => comment.id === id);
+      // make new array without item
+      return [
+        ...comments.slice(0, commentIndex),
+        ...comments.slice(commentIndex + 1),
+      ]
+      //return new array
+    }
+
+
+    // // Mutation Method
+    // const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    // // anytime you want to use a mutation method and NOT mutate the original
+    // // we need to take a copy of the array
+    // const numbersReversed = [...numbers].reverse();
+    // console.log(numbersReversed);
+    // // numbers.reverse();
+    // console.log(numbers);
+
+    // // Immutable
+    // const pizzaSlice = numbers.slice(2, 4);
+    // console.log(pizzaSlice);
+    // console.log(numbers);
+
+  </script>
 </body>
 
 </html>
