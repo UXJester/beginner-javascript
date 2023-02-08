@@ -20,4 +20,20 @@ async function populateVideo() {
   faceCanvas.height = video.videoHeight;
 }
 
-populateVideo();
+async function detect() {
+  const faces = await faceDetector.detect(video);
+  // ask the browser when the next animation frame is, and tell it to run detect for us
+  faces.forEach(drawFace);
+  // faces.forEach(censor);
+  requestAnimationFrame(detect);
+}
+
+function drawFace(face) {
+  const { width, height, top, left } = face.boundingBox;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = '#ffc600';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(left, top, width, height);
+}
+
+populateVideo().then(detect);
